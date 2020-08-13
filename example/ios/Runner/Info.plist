@@ -41,5 +41,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>XSignInstallAppKey</key>
+	<string>af5a03170db784cb42e89e4b65bcff36</string>
 </dict>
 </plist>

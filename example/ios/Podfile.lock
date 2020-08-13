@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - xsigninstall_flutter_plugin (0.0.1):
+    - Flutter
+    - XSignInstallSDK
+  - XSignInstallSDK (0.1.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - xsigninstall_flutter_plugin (from `.symlinks/plugins/xsigninstall_flutter_plugin/ios`)
+
+SPEC REPOS:
+  trunk:
+    - XSignInstallSDK
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  xsigninstall_flutter_plugin:
+    :path: ".symlinks/plugins/xsigninstall_flutter_plugin/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  xsigninstall_flutter_plugin: 5bf08535a2219539c7cdd1c98cfeac2551dd3ee9
+  XSignInstallSDK: 5a558ada7e69de8acf9f8f6605663f044c3b4056
+
+PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+
+COCOAPODS: 1.9.1

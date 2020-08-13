@@ -4,55 +4,59 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:xsigninstall_flutter_plugin/xsigninstall_flutter_plugin.dart';
 
+import 'package:flutter/material.dart';
+
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
-
-  @override
-  void initState() {
-    super.initState();
-    initPlatformState();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await XsigninstallFlutterPlugin.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
-  }
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
+    return new MaterialApp(
+      title: 'Welcome to Flutter',
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Welcome to Flutter'),
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+        body: new Center(
+          child: new MyContainer(),
         ),
       ),
     );
   }
+}
+
+class MyText extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Text("MyText HelloWorld");
+  }
+}
+
+
+class MyContainer extends StatelessWidget {
+  final _xinstall = XsigninstallFlutterPlugin();
+
+  @override
+  Widget build(BuildContext context) {
+    _xinstall.setWakeupHandler((params) {print("wakeupparams--$params");});
+    return new Container(
+      child:new Column(children: [
+        new RaisedButton(onPressed: reportRegister,child: new Text("reportRegister"),),
+        new RaisedButton(onPressed: setInstallParams,child: new Text("setInstallParams"),),
+      ],)
+    );
+  }
+
+  void reportRegister() {
+    print("reportRegister");
+    _xinstall.reportRegister();
+  }
+
+  void setInstallParams() {
+    print("setInstallParams");
+    _xinstall.getInstallParams((params) {print("install--$params");});
+  }
+
 }
