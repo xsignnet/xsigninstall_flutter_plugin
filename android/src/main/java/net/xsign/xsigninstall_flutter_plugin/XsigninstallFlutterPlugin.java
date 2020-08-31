@@ -41,7 +41,16 @@ public class XsigninstallFlutterPlugin implements FlutterPlugin, MethodCallHandl
   public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
     if (call.method.equals("getPlatformVersion")) {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
-    } else {
+    } 
+    else if(call.method.equals("reportRegister")) {
+      System.out.println("112311111");
+      result.success("Android reportRegister");
+    }
+    else if(call.method.equals("getInstallParams")) {
+      System.out.println("aaaabbbbbcccc");
+      result.success("Android reportRegister");
+    }
+    else {
       result.notImplemented();
     }
   }

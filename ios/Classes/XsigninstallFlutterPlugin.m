@@ -14,9 +14,7 @@ static id shared;
 
 - (instancetype)init {
     if (self = [super init]) {
-        NSString *appKey = [[[NSBundle mainBundle]infoDictionary]objectForKey:@"XSignInstallAppKey"];
-        NSLog(@"appKey:%@",appKey);
-        [XSignInstallSDK registerXInstallSDK:appKey delegate:self];
+        [XSignInstallSDK initWithDelegate:self];
         #warning remove dispatch_after
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self getWakeUpParams:@{@"abc":@"123"}];
