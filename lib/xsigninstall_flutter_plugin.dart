@@ -24,7 +24,7 @@ class XsigninstallFlutterPlugin {
         _wakeupHandler(params);
         break;
       case "onInstallParams":
-        print("onInstall");
+        print("flutter onInstall been invoked!");
         _installHandler(params);
         break;
       default:

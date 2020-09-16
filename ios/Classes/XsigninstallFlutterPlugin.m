@@ -15,10 +15,6 @@ static id shared;
 - (instancetype)init {
     if (self = [super init]) {
         [XSignInstallSDK initWithDelegate:self];
-        #warning remove dispatch_after
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self getWakeUpParams:@{@"abc":@"123"}];
-        });
     }
     shared = self;
     return  self;
@@ -47,21 +43,17 @@ static id shared;
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
     if ([@"reportRegister" isEqualToString:call.method]) {
-        NSLog(@"iOS start Handle method:%@  arguments:%@",call.method,call.arguments);
         [XSignInstallSDK reportRegister];
     }
     else if ([@"getInstallParams" isEqualToString:call.method]) {
-        NSLog(@"iOS start Handle method:%@  arguments:%@",call.method,call.arguments);
-#warning remove dispatch_after
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.flutterMethodChannel invokeMethod:@"onInstallParams" arguments:@{@"abc":@"1234"}];
-        });
+        NSLog(@"ios getInstall");
         [XSignInstallSDK getInstallParams:^(NSDictionary * _Nullable dic) {
+            NSLog(@"abcde");
+            NSLog(@"%@",dic);
             [self.flutterMethodChannel invokeMethod:@"onInstallParams" arguments:dic];
         }];
     }
     else {
-        NSLog(@"iOS start Handle method:%@  arguments:%@",call.method,call.arguments);
         result(FlutterMethodNotImplemented);
     }
 }

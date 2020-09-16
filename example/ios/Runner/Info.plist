@@ -18,6 +18,17 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>nvhem9</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -41,7 +52,11 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>XSignInstallAppKey</key>
-	<string>af5a03170db784cb42e89e4b65bcff36</string>
+	<key>___XSignInstall_env___</key>
+	<string>pre</string>
+	<key>com.XSigninstall.APP_KEY</key>
+	<string>nvhem9</string>
+	<key>___XSignInstall_PRINT___</key>
+	<true/>
 </dict>
 </plist>

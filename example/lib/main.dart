@@ -40,11 +40,17 @@ class MyContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _xinstall.setWakeupHandler((params) {print("wakeupparams--$params");});
+    _xinstall.setWakeupHandler((Map<String, dynamic> params) {print("wakeupparams--$params");showAlertDialog(context, "wakeupparams--$params");});
     return new Container(
       child:new Column(children: [
         new RaisedButton(onPressed: reportRegister,child: new Text("reportRegister"),),
-        new RaisedButton(onPressed: setInstallParams,child: new Text("setInstallParams"),),
+        new RaisedButton(
+          onPressed: () {
+            print("getInstallPressed!");
+            setInstallParams(context);
+          },
+          child: new Text("setInstallParams"),
+        ),
       ],)
     );
   }
@@ -54,9 +60,29 @@ class MyContainer extends StatelessWidget {
     _xinstall.reportRegister();
   }
 
-  void setInstallParams() {
+  void setInstallParams(BuildContext context) {
     print("setInstallParams");
-    _xinstall.getInstallParams((params) {print("install--$params");});
+    _xinstall.getInstallParams((Map<String, dynamic> params) {print("install--$params");showAlertDialog(context, "installparams--$params");});
   }
+
+  void showAlertDialog(BuildContext context, String msg) {
+  showDialog(
+      context: context,
+      builder: (_) => new AlertDialog(
+          title: new Text("Dialog Title"),
+          content: new Text(msg),
+          actions:<Widget>[
+            new FlatButton(child:new Text("CANCEL"), onPressed: (){
+              Navigator.of(context).pop();
+
+            },),
+            new FlatButton(child:new Text("OK"), onPressed: (){
+              Navigator.of(context).pop();
+
+            },)
+          ]
+
+      ));
+}
 
 }
