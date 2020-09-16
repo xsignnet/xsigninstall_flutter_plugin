@@ -52,11 +52,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>___XSignInstall_env___</key>
-	<string>pre</string>
 	<key>com.XSigninstall.APP_KEY</key>
 	<string>nvhem9</string>
-	<key>___XSignInstall_PRINT___</key>
-	<true/>
 </dict>
 </plist>
