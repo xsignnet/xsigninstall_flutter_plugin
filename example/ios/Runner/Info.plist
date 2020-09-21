@@ -25,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>nvhem9</string>
+				<string>nay0d4</string>
 			</array>
 		</dict>
 	</array>
@@ -53,6 +53,8 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>com.XSigninstall.APP_KEY</key>
-	<string>nvhem9</string>
+	<string>nay0d4</string>
+	<key>___XSignInstall_env___</key>
+	<string>dev</string>
 </dict>
 </plist>

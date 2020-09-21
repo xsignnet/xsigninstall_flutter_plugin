@@ -42,7 +42,7 @@ class XsigninstallFlutterPlugin {
     _channel.invokeMethod("getInstallParams");
   }
 
-  void setWakeupHandler(ParamsHandler wakeupHandler) {
+  void initWakeupHandler(ParamsHandler wakeupHandler) {
     _wakeupHandler = wakeupHandler;
   }
 

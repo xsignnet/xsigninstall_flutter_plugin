@@ -3,7 +3,7 @@ PODS:
   - xsigninstall_flutter_plugin (0.0.1):
     - Flutter
     - XSignInstallSDK
-  - XSignInstallSDK (0.4.0)
+  - XSignInstallSDK (0.6.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   xsigninstall_flutter_plugin: 5bf08535a2219539c7cdd1c98cfeac2551dd3ee9
-  XSignInstallSDK: bdbca79eadaeb9cd1936679674231fe7242c9b1b
+  XSignInstallSDK: 65bba6f83a9a479947d233dcca9c33575d6b9140
 
 PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
 

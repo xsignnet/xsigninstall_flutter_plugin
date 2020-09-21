@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Welcome to Flutter2',
+      title: 'Welcome to Flutter',
       home: new Scaffold(
         appBar: new AppBar(
-          title: new Text('Welcome to Flutter2'),
+          title: new Text('Welcome to Flutter'),
         ),
         body: new Center(
           child: new MyContainer(),
@@ -34,55 +34,54 @@ class MyText extends StatelessWidget {
   }
 }
 
-
 class MyContainer extends StatelessWidget {
   final _xinstall = XsigninstallFlutterPlugin();
 
   @override
   Widget build(BuildContext context) {
-    _xinstall.setWakeupHandler((Map<String, dynamic> params) {print("wakeupparams--$params");showAlertDialog(context, "wakeupparams--$params");});
+    _xinstall.initWakeupHandler((Map<String, dynamic> params) {
+      showAlertDialog(context, "wakeupparams--$params");
+    });
     return new Container(
-      child:new Column(children: [
-        new RaisedButton(onPressed: reportRegister,child: new Text("reportRegister"),),
+        child: new Column(
+      children: [
         new RaisedButton(
           onPressed: () {
-            print("getInstallPressed!");
-            setInstallParams(context);
+            _xinstall.reportRegister();
           },
-          child: new Text("setInstallParams"),
+          child: new Text("reportRegister"),
         ),
-      ],)
-    );
-  }
-
-  void reportRegister() {
-    print("reportRegister");
-    _xinstall.reportRegister();
-  }
-
-  void setInstallParams(BuildContext context) {
-    print("setInstallParams");
-    _xinstall.getInstallParams((Map<String, dynamic> params) {print("install--$params");showAlertDialog(context, "installparams--$params");});
+        new RaisedButton(
+          onPressed: () {
+            _xinstall.getInstallParams((Map<String, dynamic> params) {
+              showAlertDialog(context, "installparams--$params");
+            });
+          },
+          child: new Text("getInstallParams"),
+        ),
+      ],
+    ));
   }
 
   void showAlertDialog(BuildContext context, String msg) {
-  showDialog(
-      context: context,
-      builder: (_) => new AlertDialog(
-          title: new Text("Dialog Title"),
-          content: new Text(msg),
-          actions:<Widget>[
-            new FlatButton(child:new Text("CANCEL"), onPressed: (){
-              Navigator.of(context).pop();
-
-            },),
-            new FlatButton(child:new Text("OK"), onPressed: (){
-              Navigator.of(context).pop();
-
-            },)
-          ]
-
-      ));
-}
-
+    showDialog(
+        context: context,
+        builder: (_) => new AlertDialog(
+                title: new Text("Dialog Title"),
+                content: new Text(msg),
+                actions: <Widget>[
+                  new FlatButton(
+                    child: new Text("CANCEL"),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  new FlatButton(
+                    child: new Text("OK"),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  )
+                ]));
+  }
 }
